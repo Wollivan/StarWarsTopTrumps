@@ -107,6 +107,7 @@ ul {
 #app {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   align-items: center;
   background-image: url(../assets/space-background.jpeg);
   background-size: cover;
