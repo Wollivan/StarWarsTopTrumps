@@ -80,6 +80,9 @@ $star-wars-yellow: #ffe81f;
             &.lost {
                 background-color: #ff0000;
             }
+            &.draw {
+                background-color: #8d8dfc;
+            }
         }
         &__cost-in-credits {
             @extend .#{$type}-hand__cargo-capacity;

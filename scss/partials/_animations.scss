@@ -30,3 +30,16 @@
 .fade-left {
     animation: fade-right 2s ease-out forwards;
 }
+
+@keyframes try-spinning {
+    0%,
+    100% {
+        transform: rotateY(0deg);
+    }
+    50% {
+        transform: rotateY(180deg);
+    }
+}
+.try-spinning {
+    animation: try-spinning 1s linear infinite;
+}

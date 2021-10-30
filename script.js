@@ -444,7 +444,7 @@ let cardSteal = (winner, statClass) => {
 
     if (winner === "player") {
         let losingCard = document.querySelector(".cpu-hand__card-container");
-        //Flash the chosen category witha relevant color
+        //Flash the chosen category with a relevant color
         playerStat.classList.add("won");
         cpuStat.classList.add("lost");
 
@@ -463,7 +463,7 @@ let cardSteal = (winner, statClass) => {
         }, 2000);
     } else if (winner === "cpu") {
         let losingCard = document.querySelector(".player-hand__card-container");
-        //Flash the chosen category witha relevant color
+        //Flash the chosen category with a relevant color
         playerStat.classList.add("lost");
         cpuStat.classList.add("won");
 
@@ -475,6 +475,24 @@ let cardSteal = (winner, statClass) => {
         setTimeout(() => {
             losingCard.classList.add("fade-right");
         }, 3500);
+    } else if (winner === "draw") {
+        //Flash the chosen category with a relevant color
+        playerStat.classList.add("draw");
+        cpuStat.classList.add("draw");
+
+        // give each player new cards
+        playerDeck.push(playerDeck.splice(0, 1)[0]);
+        cpuDeck.push(cpuDeck.splice(0, 1)[0]);
+
+        // spin the cards around until they get a new one
+        setTimeout(() => {
+            document
+                .querySelector(".player-hand__card-container")
+                .classList.add("try-spinning");
+            document
+                .querySelector(".cpu-hand__card-container")
+                .classList.add("try-spinning");
+        }, 2000);
     }
     // console.log(playerDeck);
     // console.log(cpuDeck);

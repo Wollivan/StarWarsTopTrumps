@@ -82,6 +82,28 @@ ul {
           animation: fade-right 2s ease-out forwards;
 }
 
+@-webkit-keyframes try-spinning {
+  0%, 100% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(180deg);
+  }
+}
+
+@keyframes try-spinning {
+  0%, 100% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(180deg);
+  }
+}
+.try-spinning {
+  -webkit-animation: try-spinning 1s linear infinite;
+          animation: try-spinning 1s linear infinite;
+}
+
 #app {
   display: flex;
   justify-content: space-around;
@@ -159,6 +181,9 @@ ul {
 }
 .player-hand__cargo-capacity.lost, .lost.player-hand__mglt, .lost.player-hand__length, .lost.player-hand__hyperdrive-rating, .lost.player-hand__crew, .lost.player-hand__consumables, .lost.player-hand__cost-in-credits {
   background-color: #ff0000;
+}
+.player-hand__cargo-capacity.draw, .draw.player-hand__mglt, .draw.player-hand__length, .draw.player-hand__hyperdrive-rating, .draw.player-hand__crew, .draw.player-hand__consumables, .draw.player-hand__cost-in-credits {
+  background-color: #8d8dfc;
 }
 .player-hand__count {
   text-align: center;
@@ -238,6 +263,9 @@ ul {
 }
 .cpu-hand__cargo-capacity.lost, .lost.cpu-hand__mglt, .lost.cpu-hand__length, .lost.cpu-hand__hyperdrive-rating, .lost.cpu-hand__crew, .lost.cpu-hand__consumables, .lost.cpu-hand__cost-in-credits {
   background-color: #ff0000;
+}
+.cpu-hand__cargo-capacity.draw, .draw.cpu-hand__mglt, .draw.cpu-hand__length, .draw.cpu-hand__hyperdrive-rating, .draw.cpu-hand__crew, .draw.cpu-hand__consumables, .draw.cpu-hand__cost-in-credits {
+  background-color: #8d8dfc;
 }
 .cpu-hand__count {
   text-align: center;
