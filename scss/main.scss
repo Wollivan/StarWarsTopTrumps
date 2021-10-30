@@ -1,0 +1,116 @@
+@import "./partials/reset";
+@import "./partials/animations";
+
+#app {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-image: url(../assets/space-background.jpeg);
+    background-size: cover;
+    height: 100vh;
+}
+@mixin cardStyles($type) {
+    .#{$type}-hand {
+        display: flex;
+        flex-direction: column;
+        &__card-container {
+            height: 350px;
+            width: 260px;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            &--active {
+                transform: rotateY(180deg);
+            }
+        }
+        &__card-back,
+        &__card-front {
+            border: 5px solid #484848;
+            border-radius: 5px;
+            padding: 1rem;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
+        &__card-front {
+            background-color: #fff;
+        }
+        &__card-back {
+            background-color: #000;
+            border: 5px solid #484848;
+            border-radius: 5px;
+            transform: rotateY(180deg);
+        }
+        &__back-image {
+            max-width: 100%;
+        }
+        &__back-caption {
+            text-align: center;
+            color: #ffe81f;
+        }
+        &__key {
+            padding-right: 1rem;
+        }
+        &__value {
+            padding-left: 1rem;
+        }
+        &__name {
+            border-bottom: 2px solid yellow;
+            margin-bottom: 1rem;
+        }
+        &__cargo-capacity {
+            display: flex;
+            justify-content: space-between;
+            border: 1px solid transparent;
+            padding: 0.25rem;
+            transition: background-color 1s;
+            transition-delay: 1s;
+            &:hover {
+                border: 1px solid black;
+                background-color: aliceblue;
+                cursor: pointer;
+            }
+            &.won {
+                background-color: #00ff00;
+            }
+            &.lost {
+                background-color: #ff0000;
+            }
+        }
+        &__cost-in-credits {
+            @extend .#{$type}-hand__cargo-capacity;
+        }
+        &__consumables {
+            @extend .#{$type}-hand__cargo-capacity;
+        }
+        &__crew {
+            @extend .#{$type}-hand__cargo-capacity;
+        }
+        &__hyperdrive-rating {
+            @extend .#{$type}-hand__cargo-capacity;
+        }
+        &__length {
+            @extend .#{$type}-hand__cargo-capacity;
+        }
+        &__mglt {
+            @extend .#{$type}-hand__cargo-capacity;
+        }
+    }
+}
+@include cardStyles("player");
+@include cardStyles("cpu");
+
+//Remove hover styles from cpu cards
+.cpu-hand__cargo-capacity {
+    &:hover {
+        border: 1px solid white;
+        background-color: white;
+        cursor: default;
+    }
+}
+.player-hand__card-container--active {
+    transform: rotateY(180deg);
+}

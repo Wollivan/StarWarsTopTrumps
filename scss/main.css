@@ -1,0 +1,240 @@
+/* resets */
+html,
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Avenir", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+@-webkit-keyframes fade-right {
+  0% {
+    margin-left: 0px;
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    margin-left: 200%;
+    opacity: 0;
+  }
+}
+
+@keyframes fade-right {
+  0% {
+    margin-left: 0px;
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    margin-left: 200%;
+    opacity: 0;
+  }
+}
+@-webkit-keyframes fade-left {
+  0% {
+    margin-right: 0px;
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    margin-right: 200%;
+    opacity: 0;
+  }
+}
+@keyframes fade-left {
+  0% {
+    margin-right: 0px;
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    margin-right: 200%;
+    opacity: 0;
+  }
+}
+.fade-right {
+  -webkit-animation: fade-right 2s ease-out forwards;
+          animation: fade-right 2s ease-out forwards;
+}
+
+.fade-left {
+  -webkit-animation: fade-right 2s ease-out forwards;
+          animation: fade-right 2s ease-out forwards;
+}
+
+#app {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-image: url(../assets/space-background.jpeg);
+  background-size: cover;
+  height: 100vh;
+}
+
+.player-hand {
+  display: flex;
+  flex-direction: column;
+}
+.player-hand__card-container {
+  height: 350px;
+  width: 260px;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.player-hand__card-container--active {
+  transform: rotateY(180deg);
+}
+.player-hand__card-back, .player-hand__card-front {
+  border: 5px solid #484848;
+  border-radius: 5px;
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.player-hand__card-front {
+  background-color: #fff;
+}
+.player-hand__card-back {
+  background-color: #000;
+  border: 5px solid #484848;
+  border-radius: 5px;
+  transform: rotateY(180deg);
+}
+.player-hand__back-image {
+  max-width: 100%;
+}
+.player-hand__back-caption {
+  text-align: center;
+  color: #ffe81f;
+}
+.player-hand__key {
+  padding-right: 1rem;
+}
+.player-hand__value {
+  padding-left: 1rem;
+}
+.player-hand__name {
+  border-bottom: 2px solid yellow;
+  margin-bottom: 1rem;
+}
+.player-hand__cargo-capacity, .player-hand__mglt, .player-hand__length, .player-hand__hyperdrive-rating, .player-hand__crew, .player-hand__consumables, .player-hand__cost-in-credits {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid transparent;
+  padding: 0.25rem;
+  transition: background-color 1s;
+  transition-delay: 1s;
+}
+.player-hand__cargo-capacity:hover, .player-hand__mglt:hover, .player-hand__length:hover, .player-hand__hyperdrive-rating:hover, .player-hand__crew:hover, .player-hand__consumables:hover, .player-hand__cost-in-credits:hover {
+  border: 1px solid black;
+  background-color: aliceblue;
+  cursor: pointer;
+}
+.player-hand__cargo-capacity.won, .won.player-hand__mglt, .won.player-hand__length, .won.player-hand__hyperdrive-rating, .won.player-hand__crew, .won.player-hand__consumables, .won.player-hand__cost-in-credits {
+  background-color: #00ff00;
+}
+.player-hand__cargo-capacity.lost, .lost.player-hand__mglt, .lost.player-hand__length, .lost.player-hand__hyperdrive-rating, .lost.player-hand__crew, .lost.player-hand__consumables, .lost.player-hand__cost-in-credits {
+  background-color: #ff0000;
+}
+.cpu-hand {
+  display: flex;
+  flex-direction: column;
+}
+.cpu-hand__card-container {
+  height: 350px;
+  width: 260px;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.cpu-hand__card-container--active {
+  transform: rotateY(180deg);
+}
+.cpu-hand__card-back, .cpu-hand__card-front {
+  border: 5px solid #484848;
+  border-radius: 5px;
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.cpu-hand__card-front {
+  background-color: #fff;
+}
+.cpu-hand__card-back {
+  background-color: #000;
+  border: 5px solid #484848;
+  border-radius: 5px;
+  transform: rotateY(180deg);
+}
+.cpu-hand__back-image {
+  max-width: 100%;
+}
+.cpu-hand__back-caption {
+  text-align: center;
+  color: #ffe81f;
+}
+.cpu-hand__key {
+  padding-right: 1rem;
+}
+.cpu-hand__value {
+  padding-left: 1rem;
+}
+.cpu-hand__name {
+  border-bottom: 2px solid yellow;
+  margin-bottom: 1rem;
+}
+.cpu-hand__cargo-capacity, .cpu-hand__mglt, .cpu-hand__length, .cpu-hand__hyperdrive-rating, .cpu-hand__crew, .cpu-hand__consumables, .cpu-hand__cost-in-credits {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid transparent;
+  padding: 0.25rem;
+  transition: background-color 1s;
+  transition-delay: 1s;
+}
+.cpu-hand__cargo-capacity:hover, .cpu-hand__mglt:hover, .cpu-hand__length:hover, .cpu-hand__hyperdrive-rating:hover, .cpu-hand__crew:hover, .cpu-hand__consumables:hover, .cpu-hand__cost-in-credits:hover {
+  border: 1px solid black;
+  background-color: aliceblue;
+  cursor: pointer;
+}
+.cpu-hand__cargo-capacity.won, .won.cpu-hand__mglt, .won.cpu-hand__length, .won.cpu-hand__hyperdrive-rating, .won.cpu-hand__crew, .won.cpu-hand__consumables, .won.cpu-hand__cost-in-credits {
+  background-color: #00ff00;
+}
+.cpu-hand__cargo-capacity.lost, .lost.cpu-hand__mglt, .lost.cpu-hand__length, .lost.cpu-hand__hyperdrive-rating, .lost.cpu-hand__crew, .lost.cpu-hand__consumables, .lost.cpu-hand__cost-in-credits {
+  background-color: #ff0000;
+}
+.cpu-hand__cargo-capacity:hover, .cpu-hand__cost-in-credits:hover, .cpu-hand__consumables:hover, .cpu-hand__crew:hover, .cpu-hand__hyperdrive-rating:hover, .cpu-hand__length:hover, .cpu-hand__mglt:hover {
+  border: 1px solid white;
+  background-color: white;
+  cursor: default;
+}
+
+.player-hand__card-container--active {
+  transform: rotateY(180deg);
+}/*# sourceMappingURL=main.css.map */
