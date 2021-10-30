@@ -230,13 +230,18 @@ const displayShip = (ship, player) => {
     }
 
     //Get huighest number, if its a range
+    let crewNoComma = ship.length.replace(/,/g, "");
     if (ship.crew.includes("-")) {
-        crew.setAttribute("value", ship.crew.split("-")[1]);
+        crew.setAttribute("value", crewNoComma.split("-")[1]);
     } else {
-        crew.setAttribute("value", ship.crew);
+        crew.setAttribute("value", crewNoComma);
     }
+
     hyperdriveRating.setAttribute("value", ship.hyperdriveRating);
-    length.setAttribute("value", ship.length);
+
+    let lengthNoComma = ship.length.replace(/,/g, "");
+    length.setAttribute("value", lengthNoComma);
+
     mglt.setAttribute("value", ship.mglt);
 
     // add to page
@@ -376,7 +381,8 @@ const displayShip = (ship, player) => {
         );
 
         let statClass = "length";
-
+        console.log(playerVal);
+        console.log(cpuVal);
         // compare answers
         if (playerVal > cpuVal) {
             cardSteal("player", statClass);
