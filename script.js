@@ -97,6 +97,7 @@ const getShips = () => {
         .then(() => {
             displayShip(playerDeck[0], "player");
             displayShip(cpuDeck[0], "cpu");
+            displayCardCounter();
         })
         .catch((err) => console.error(err));
 };
@@ -110,6 +111,7 @@ const displayShip = (ship, player) => {
     let backImage = document.createElement("img");
     let backCaption = document.createElement("h2");
     let name = document.createElement("h3");
+
     // wrappers
     let cargoCapacity = document.createElement("div");
     let consumables = document.createElement("div");
@@ -173,7 +175,7 @@ const displayShip = (ship, player) => {
     mgltValue.classList.add(`${player}-hand__value`);
 
     if (player === "player") {
-        cardContainer;
+        // cardContainer;
         userHand.appendChild(cardContainer);
         cardContainer.appendChild(cardFront);
         cardContainer.appendChild(cardBack);
@@ -229,7 +231,7 @@ const displayShip = (ship, player) => {
         consumables.setAttribute("value", parseInt(ship.consumables) / 7);
     }
 
-    //Get huighest number, if its a range
+    //Get highest number, if its a range
     let crewNoComma = ship.length.replace(/,/g, "");
     if (ship.crew.includes("-")) {
         crew.setAttribute("value", crewNoComma.split("-")[1]);
@@ -412,6 +414,24 @@ const displayShip = (ship, player) => {
     });
 };
 
+const displayCardCounter = () => {
+    // create nodes
+    let cardCountPlayer = document.createElement("p");
+    let cardCountCPU = document.createElement("p");
+
+    // add classes
+    cardCountPlayer.classList.add("player-hand__count");
+    cardCountCPU.classList.add("cpu-hand__count");
+
+    // add to page
+    userHand.appendChild(cardCountPlayer);
+    cpuHand.appendChild(cardCountCPU);
+
+    // add content
+    cardCountPlayer.innerText = playerDeck.length + " cards left";
+    cardCountCPU.innerText = cpuDeck.length + " cards left";
+};
+
 let cardSteal = (winner, statClass) => {
     console.log(winner);
     //Reveal cpu card
@@ -465,10 +485,15 @@ let cardSteal = (winner, statClass) => {
             .querySelector(".cpu-hand__card-container")
             .classList.add(".cpu-hand__card-container--active");
     }, 4000);
-    //Remove old card from front
+    //Remove old card from front and update card counters
     setTimeout(() => {
         document.querySelector(".player-hand__card-container").remove();
         document.querySelector(".cpu-hand__card-container").remove();
+
+        document.querySelector(".player-hand__count").innerText =
+            playerDeck.length + " cards left";
+        document.querySelector(".cpu-hand__count").innerText =
+            cpuDeck.length + " cards left";
     }, 8000);
     // console.log(playerDeck[0]);
 

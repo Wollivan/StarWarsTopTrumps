@@ -1,6 +1,7 @@
 @import "./partials/reset";
 @import "./partials/animations";
 
+$star-wars-yellow: #ffe81f;
 #app {
     display: flex;
     justify-content: space-around;
@@ -49,7 +50,7 @@
         }
         &__back-caption {
             text-align: center;
-            color: #ffe81f;
+            color: $star-wars-yellow;
         }
         &__key {
             padding-right: 1rem;
@@ -58,7 +59,7 @@
             padding-left: 1rem;
         }
         &__name {
-            border-bottom: 2px solid yellow;
+            border-bottom: 2px solid $star-wars-yellow;
             margin-bottom: 1rem;
         }
         &__cargo-capacity {
@@ -97,6 +98,15 @@
         }
         &__mglt {
             @extend .#{$type}-hand__cargo-capacity;
+        }
+        &__count {
+            text-align: center;
+            margin-top: 1rem;
+            color: $star-wars-yellow;
+            background-color: black;
+            padding: 0.5rem 1rem;
+            border: 5px solid $star-wars-yellow;
+            order: 1; //moves it after the card even though it ends up before it in the html
         }
     }
 }

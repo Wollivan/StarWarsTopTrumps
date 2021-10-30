@@ -138,7 +138,7 @@ ul {
   padding-left: 1rem;
 }
 .player-hand__name {
-  border-bottom: 2px solid yellow;
+  border-bottom: 2px solid #ffe81f;
   margin-bottom: 1rem;
 }
 .player-hand__cargo-capacity, .player-hand__mglt, .player-hand__length, .player-hand__hyperdrive-rating, .player-hand__crew, .player-hand__consumables, .player-hand__cost-in-credits {
@@ -160,6 +160,16 @@ ul {
 .player-hand__cargo-capacity.lost, .lost.player-hand__mglt, .lost.player-hand__length, .lost.player-hand__hyperdrive-rating, .lost.player-hand__crew, .lost.player-hand__consumables, .lost.player-hand__cost-in-credits {
   background-color: #ff0000;
 }
+.player-hand__count {
+  text-align: center;
+  margin-top: 1rem;
+  color: #ffe81f;
+  background-color: black;
+  padding: 0.5rem 1rem;
+  border: 5px solid #ffe81f;
+  order: 1;
+}
+
 .cpu-hand {
   display: flex;
   flex-direction: column;
@@ -207,7 +217,7 @@ ul {
   padding-left: 1rem;
 }
 .cpu-hand__name {
-  border-bottom: 2px solid yellow;
+  border-bottom: 2px solid #ffe81f;
   margin-bottom: 1rem;
 }
 .cpu-hand__cargo-capacity, .cpu-hand__mglt, .cpu-hand__length, .cpu-hand__hyperdrive-rating, .cpu-hand__crew, .cpu-hand__consumables, .cpu-hand__cost-in-credits {
@@ -229,6 +239,16 @@ ul {
 .cpu-hand__cargo-capacity.lost, .lost.cpu-hand__mglt, .lost.cpu-hand__length, .lost.cpu-hand__hyperdrive-rating, .lost.cpu-hand__crew, .lost.cpu-hand__consumables, .lost.cpu-hand__cost-in-credits {
   background-color: #ff0000;
 }
+.cpu-hand__count {
+  text-align: center;
+  margin-top: 1rem;
+  color: #ffe81f;
+  background-color: black;
+  padding: 0.5rem 1rem;
+  border: 5px solid #ffe81f;
+  order: 1;
+}
+
 .cpu-hand__cargo-capacity:hover, .cpu-hand__cost-in-credits:hover, .cpu-hand__consumables:hover, .cpu-hand__crew:hover, .cpu-hand__hyperdrive-rating:hover, .cpu-hand__length:hover, .cpu-hand__mglt:hover {
   border: 1px solid white;
   background-color: white;
